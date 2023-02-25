@@ -1,0 +1,25 @@
+<html>
+     <head> 
+          <meta charset="utf-8">
+          <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+          <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+          <title>Домашнє завдання тижня 04</title> 
+     </head>
+     <body>
+        <a-scene embedded arjs>
+            <!..<a-marker preset="hiro">
+                   <a-entity scale="0.2 0.2 0.2" rotation="-90 0 0">
+                   
+
+
+                  </a-entity>
+             </a-marker>..>
+             
+              <a-marker preset="kanji">
+                   <a-entity geometry="primitive: sphere; radius: 0.5" light="type: point; color: white; intensity: 2"
+                             material="color: green; shader: flat" position="0 0 -1"></a-entity>
+              </a-marker>
+              <a-entity camera></a-entity>             
+    </a-scene>
+    </body>
+</html>

@@ -52,10 +52,10 @@ AFRAME.registerComponent('run', {
          this.lineDF.add( this.cylinderDF ); 
          this.cylinderDF.visible = false; 
     
-         this.cylinderAF = new THREE.Mesh( geometry, material );     
-         this.lineAF = document.querySelector('#lineAF').object3D;
-         this.lineAF.add( this.cylinderAF ); 
-         this.cylinderAF.visible = false; 
+         this.cylinderFA = new THREE.Mesh( geometry, material );     
+         this.lineFA = document.querySelector('#lineFA').object3D;
+         this.lineFA.add( this.cylinderFA ); 
+         this.cylinderFA.visible = false; 
   }, 
   tick: function (time, deltaTime) {    
             if ( markerVisible["A"] && markerVisible["B"] ) {      

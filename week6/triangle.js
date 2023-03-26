@@ -99,10 +99,14 @@ AFRAME.registerComponent('run', {
                   this.cylinderFA.visible = true;     
            } 
      if ( !markerVisible["A"] )        
-       this.cylinderAB.visible = this.cylinderAC.visible = false;     
+       this.cylinderAB.visible = this.cylinderFA.visible = false;     
      if ( !markerVisible["B"] )        
        this.cylinderAB.visible = this.cylinderBC.visible = false;     
      if ( !markerVisible["C"] )        
-       this.cylinderAC.visible = this.cylinderBC.visible = false;   
+       this.cylinderCD.visible = this.cylinderBC.visible = false;
+     if ( !markerVisible["D"] )        
+       this.cylinderCD.visible = this.cylinderDF.visible = false; 
+     if ( !markerVisible["F"] )        
+       this.cylinderDF.visible = this.cylinderFA.visible = false; 
    } 
 }); 

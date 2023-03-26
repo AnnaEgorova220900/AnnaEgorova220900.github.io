@@ -57,32 +57,47 @@ AFRAME.registerComponent('run', {
          this.lineAF.add( this.cylinderAF ); 
          this.cylinderAF.visible = false; 
   }, 
-  
-   tick: function (time, deltaTime) {    
-     if ( markerVisible["A"] && markerVisible["B"] ) {      
-       this.A.object3D.getWorldPosition(this.p0);       
-       this.B.object3D.getWorldPosition(this.p1);       
-       let distance = this.p0.distanceTo( this.p1 );      
-       this.lineAB.lookAt( this.p1 );             
-       this.cylinderAB.scale.set(1,1,distance);       
-       this.cylinderAB.visible = true;      
-     }     
-     if ( markerVisible["B"] && markerVisible["C"] ) {       
-       this.B.object3D.getWorldPosition(this.p1);       
-       this.C.object3D.getWorldPosition(this.p2);       
-       let distance = this.p1.distanceTo( this.p2 );       
-       this.lineBC.lookAt( this.p2 );             
-       this.cylinderBC.scale.set(1,1,distance);      
-       this.cylinderBC.visible = true;     
-     }
-     if ( markerVisible["A"] && markerVisible["C"] ) {       
-       this.A.object3D.getWorldPosition(this.p0);       
-       this.C.object3D.getWorldPosition(this.p2);       
-       let distance = this.p2.distanceTo( this.p0 );       
-       this.lineAC.lookAt( this.p0 );       
-       this.cylinderAC.scale.set(1,1,distance);       
-       this.cylinderAC.visible = true;     
-     }     
+  tick: function (time, deltaTime) {    
+            if ( markerVisible["A"] && markerVisible["B"] ) {      
+                  this.A.object3D.getWorldPosition(this.p0);       
+                  this.B.object3D.getWorldPosition(this.p1);       
+                  let distance = this.p0.distanceTo( this.p1 );      
+                  this.lineAB.lookAt( this.p1 );             
+                  this.cylinderAB.scale.set(1,1,distance);       
+                  this.cylinderAB.visible = true;      
+            }     
+            if ( markerVisible["B"] && markerVisible["C"] ) {       
+                  this.B.object3D.getWorldPosition(this.p1);       
+                  this.C.object3D.getWorldPosition(this.p2);       
+                  let distance = this.p1.distanceTo( this.p2 );       
+                  this.lineBC.lookAt( this.p2 );             
+                  this.cylinderBC.scale.set(1,1,distance);      
+                  this.cylinderBC.visible = true;     
+            }
+           if ( markerVisible["C"] && markerVisible["D"] ) {       
+                  this.C.object3D.getWorldPosition(this.p2);       
+                  this.D.object3D.getWorldPosition(this.p3);       
+                  let distance = this.p2.distanceTo( this.p3 );       
+                  this.lineCd.lookAt( this.p3 );       
+                  this.cylinderCD.scale.set(1,1,distance);       
+                  this.cylinderCD.visible = true;     
+           } 
+           if ( markerVisible["D"] && markerVisible["F"] ) {       
+                  this.D.object3D.getWorldPosition(this.p3);       
+                  this.F.object3D.getWorldPosition(this.p4);       
+                  let distance = this.p3.distanceTo( this.p4 );       
+                  this.lineDF.lookAt( this.p4 );       
+                  this.cylinderDF.scale.set(1,1,distance);       
+                  this.cylinderDF.visible = true;     
+           } 
+          if ( markerVisible["F"] && markerVisible["A"] ) {       
+                  this.A.object3D.getWorldPosition(this.p0);       
+                  this.F.object3D.getWorldPosition(this.p4);       
+                  let distance = this.p4.distanceTo( this.p0 );       
+                  this.lineFA.lookAt( this.p0 );       
+                  this.cylinderFA.scale.set(1,1,distance);       
+                  this.cylinderFA.visible = true;     
+           } 
      if ( !markerVisible["A"] )        
        this.cylinderAB.visible = this.cylinderAC.visible = false;     
      if ( !markerVisible["B"] )        

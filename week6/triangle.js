@@ -30,7 +30,7 @@ AFRAME.registerComponent('run', {
           let material = new THREE.MeshLambertMaterial( {color:0xFF0000}); 
           let geometry=new THREE.CylinderGeometry( 0.05, 0.05, 1, 12);     
               geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 0.5, 0 ) );     
-              geometry.applyMatrix( new THREE.Matrix4().makeRotationX( THREE.Math.degToRad( 90 ) ) ); 
+              geometry.applyMatrix( new THREE.Matrix4().makeRotationX( THREE.MathUtils.degToRad( 90 ) ) ); 
     
          this.cylinderAB = new THREE.Mesh( geometry, material );     
          this.lineAB = document.querySelector('#lineAB').object3D;     

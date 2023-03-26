@@ -16,28 +16,46 @@ AFRAME.registerComponent('registerevents', {
 
 AFRAME.registerComponent('run', {   
   init: function() {     
-    this.A = document.querySelector("#A");     
-    this.B = document.querySelector("#B");     
-    this.C = document.querySelector("#C");     
-    this.p0 = new THREE.Vector3();     
-    this.p1 = new THREE.Vector3();      
-    this.p2 = new THREE.Vector3();     
-    let material = new THREE.MeshLambertMaterial( {color:0xFF0000}); 
-    let geometry=new THREE.CylinderGeometry( 0.05, 0.05, 1, 12);     
-    geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 0.5, 0 ) );     
-    geometry.applyMatrix( new THREE.Matrix4().makeRotationX( THREE.Math.degToRad( 90 ) ) );     
-    this.cylinderAB = new THREE.Mesh( geometry, material );     
-    this.lineAB = document.querySelector('#lineAB').object3D;     
-    this.lineAB.add( this.cylinderAB );     
-    this.cylinderAB.visible = false;     
-    this.cylinderBC = new THREE.Mesh( geometry, material );     
-    this.lineBC = document.querySelector('#lineBC').object3D;     
-    this.lineBC.add( this.cylinderBC );     
-    this.cylinderBC.visible = false;     
-    this.cylinderAC = new THREE.Mesh( geometry, material );     
-    this.lineAC = document.querySelector('#lineAC').object3D;     
-    this.lineAC.add( this.cylinderAC );     
-    this.cylinderAC.visible = false;   
+          this.A = document.querySelector("#A");     
+          this.B = document.querySelector("#B");     
+          this.C = document.querySelector("#C");
+          this.D = document.querySelector("#D");
+          this.F = document.querySelector("#F");
+          this.p0 = new THREE.Vector3();     
+          this.p1 = new THREE.Vector3();      
+          this.p2 = new THREE.Vector3();
+          this.p3 = new THREE.Vector3();
+          this.p4 = new THREE.Vector3();
+    
+          let material = new THREE.MeshLambertMaterial( {color:0xFF0000}); 
+          let geometry=new THREE.CylinderGeometry( 0.05, 0.05, 1, 12);     
+              geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 0.5, 0 ) );     
+              geometry.applyMatrix( new THREE.Matrix4().makeRotationX( THREE.Math.degToRad( 90 ) ) ); 
+    
+         this.cylinderAB = new THREE.Mesh( geometry, material );     
+         this.lineAB = document.querySelector('#lineAB').object3D;     
+         this.lineAB.add( this.cylinderAB );     
+         this.cylinderAB.visible = false;     
+    
+         this.cylinderBC = new THREE.Mesh( geometry, material );     
+         this.lineBC = document.querySelector('#lineBC').object3D;     
+         this.lineBC.add( this.cylinderBC );     
+         this.cylinderBC.visible = false;     
+   
+         this.cylinderCD = new THREE.Mesh( geometry, material );     
+         this.lineCD = document.querySelector('#lineCD').object3D;
+         this.lineCD.add( this.cylinderCD ); 
+         this.cylinderCD.visible = false;   
+    
+         this.cylinderDF = new THREE.Mesh( geometry, material );     
+         this.lineDF = document.querySelector('#lineDF').object3D;
+         this.lineDF.add( this.cylinderDF ); 
+         this.cylinderDF.visible = false; 
+    
+         this.cylinderAF = new THREE.Mesh( geometry, material );     
+         this.lineAF = document.querySelector('#lineAF').object3D;
+         this.lineAF.add( this.cylinderAF ); 
+         this.cylinderAF.visible = false; 
   }, 
   
    tick: function (time, deltaTime) {    

@@ -91,8 +91,8 @@ AFRAME.registerComponent('run', {
                   this.cylinderDF.visible = true;     
            } 
           if ( markerVisible["F"] && markerVisible["A"] ) {       
-                  this.A.object3D.getWorldPosition(this.p0);       
                   this.F.object3D.getWorldPosition(this.p4);       
+                  this.A.object3D.getWorldPosition(this.p0);       
                   let distance = this.p4.distanceTo( this.p0 );       
                   this.lineFA.lookAt( this.p0 );       
                   this.cylinderFA.scale.set(1,1,distance);       

@@ -1,6 +1,6 @@
 let markerVisible = { A: false, B: false, C: false, D: false, F: false  }; 
                   
-AFRAME.registerComponent('registerevents', {   
+AFRAME.registerComponent('registerevent', {   
        init: function () {     
                 var marker = this.el;      
                 marker.addEventListener('markerFound', function() {       
@@ -78,7 +78,7 @@ AFRAME.registerComponent('run', {
                   this.C.object3D.getWorldPosition(this.p2);       
                   this.D.object3D.getWorldPosition(this.p3);       
                   let distance = this.p2.distanceTo( this.p3 );       
-                  this.lineCd.lookAt( this.p3 );       
+                  this.lineCD.lookAt( this.p3 );       
                   this.cylinderCD.scale.set(1,1,distance);       
                   this.cylinderCD.visible = true;     
            } 

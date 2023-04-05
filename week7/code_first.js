@@ -27,8 +27,8 @@ function animate() {
 
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
-	let x = radius * Math.cos(angle) + 2;
-	let y = radius * Math.sin(angle);
+	camera.position.x = radius * Math.cos(angle) + 2;
+	camera.position.y = radius * Math.sin(angle);
 	angle += Math.PI/180;
 
 	renderer.render( scene, camera );

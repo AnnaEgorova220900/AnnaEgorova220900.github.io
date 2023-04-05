@@ -20,11 +20,16 @@ camera.position.x = 5;
 renderer.setClearColor (0xFFFFFF);
 renderer.clear();
 
+let angle = 0, radius = 4;
+
 function animate() {
 	requestAnimationFrame( animate );
 
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
+	let x = radius * Math.cos(angle) + 2;
+	let y = radius * Math.sin(angle);
+	angle += Math.PI/180;
 
 	renderer.render( scene, camera );
 }

@@ -16,6 +16,9 @@ scene.add( cube );
 
 camera.position.z = 5;
 
+renderer.setClearColor (0xFFFFFF);
+renderer.clear();
+
 function animate() {
 	       requestAnimationFrame( animate );
 	       renderer.render( scene, camera );

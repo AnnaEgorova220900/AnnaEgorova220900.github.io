@@ -60,8 +60,8 @@ scene.add(paramesh);*/
 
 var delta=0 
 delta+=0.1; 
-planegeometry.verticesNeedUpdate=true;
 planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
+planegeometry.verticesNeedUpdate=true;
 
 const planegeometry=new THREE.PlaneGeometry(10, 10); 
 const planematerial=new THREE.MeshPhongMaterial({ 

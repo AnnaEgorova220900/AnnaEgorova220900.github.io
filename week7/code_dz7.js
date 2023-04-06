@@ -12,9 +12,7 @@ document.body.appendChild( renderer.domElement );
 const pyramidgeometry=new THREE.CylinderGeometry(0, 0.8, 2, 4); 
 const pyramidmaterial=new THREE.MeshLambertMaterial( {color: 0xF3FFE2});
 const pyramidmesh=new THREE.Mesh(pyramidgeometry, pyramidmaterial); 
-pyramidmesh=new THREE.Mesh(pyramidgeometry, pyramidmaterial);
 scene.add(pyramidmesh); 
-
 
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(lightOne);

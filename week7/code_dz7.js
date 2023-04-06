@@ -58,9 +58,6 @@ const paramesh= new THREE.Mesh(parageometry, paramaterial);
 paramesh.position.set(0, -2, -100);
 scene.add(paramesh);*/
 
-var delta=0 
-delta+=0.1; 
-
 const planegeometry=new THREE.PlaneGeometry(10, 10); 
 const planematerial=new THREE.MeshPhongMaterial({ 
 	color: 0xF3FFE2, 
@@ -71,20 +68,22 @@ const planemesh=new THREE.Mesh(planegeometry, planematerial);
 planemesh.position.set(0, -20, -100); 
 scene.add(planemesh); 
 
-planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
-planegeometry.verticesNeedUpdate=true;
-
-
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(lightOne);
 
 var lightTwo=new THREE.PointLight(0xffffff, 0.5);
 scene.add(lightTwo);
 
+var delta=0 
+
 function animate() {
         pyramidmesh.rotation.y+=0.1; 
 	/*paramesh.rotation.x+=0.1; 
-	paramesh.rotation.y+=0.1;*/ 
+	paramesh.rotation.y+=0.1;*/
+	
+	delta+=0.1;
+	planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
+	planegeometry.verticesNeedUpdate=true;
 	
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );

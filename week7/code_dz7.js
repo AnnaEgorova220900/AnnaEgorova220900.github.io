@@ -66,7 +66,9 @@ const planematerial=new THREE.MeshPhongMaterial({
 }); 
 const planemesh=new THREE.Mesh(planegeometry, planematerial); 
 planemesh.position.set(0, -20, -100); 
-scene.add(planemesh); 
+scene.add(planemesh);
+
+var delta = 0;
 
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(lightOne);
@@ -74,7 +76,6 @@ scene.add(lightOne);
 var lightTwo=new THREE.PointLight(0xffffff, 0.5);
 scene.add(lightTwo);
 
-var delta = 0;
 
 function animate() {
 	delta += 0.1; 

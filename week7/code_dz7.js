@@ -52,7 +52,7 @@ var paraFunction=function(a, b)
 	return new THREE.Vector3(x, y, z); 
 } 
 
-const parageometry = new THREE.BufferGeometry(paraFunction, 8, 8);
+const parageometry = new THREE.ParametricGeometry(paraFunction, 8, 8);
 const paramaterial= new THREE.MeshBasicMaterial( {color: 0xF3FFE2});
 const paramesh= new THREE.Mesh(parageometry, paramaterial);
 paramesh.position.set(0, -2, -100);
@@ -68,7 +68,7 @@ const planemesh=new THREE.Mesh(planegeometry, planematerial);
 planemesh.position.set(0, -20, -100); 
 scene.add(planemesh);
 
-var delta;
+var delta = 0;
 
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(lightOne);

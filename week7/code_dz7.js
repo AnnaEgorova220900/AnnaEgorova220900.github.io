@@ -24,7 +24,7 @@ function animate() {
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
   
-  pyramidmesh.rotation.y+=0.1; 
+        pyramidmesh.rotation.y+=0.1; 
 }
 
 animate();

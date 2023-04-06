@@ -78,8 +78,8 @@ scene.add(lightTwo);
 
 function animate() {
         pyramidmesh.rotation.y+=0.1; 
-	paramesh.rotation.x+=0.1; 
-	paramesh.rotation.y+=0.1; 
+	/*paramesh.rotation.x+=0.1; 
+	paramesh.rotation.y+=0.1;*/ 
 	
 	delta+=0.1; 
 	planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 

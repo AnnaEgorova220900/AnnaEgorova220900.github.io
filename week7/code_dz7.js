@@ -70,8 +70,9 @@ scene.add(planemesh);
 
 var delta=0 
 delta+=0.1; 
-planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
 planegeometry.verticesNeedUpdate=true;
+planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
+
 	
 
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);

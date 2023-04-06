@@ -43,8 +43,8 @@ const circlemesh=new THREE.Mesh(circlegeometry, circlematerial);
 circlemesh.position.set(2, 0, -6); 
 circlemesh.rotation.set(0, 0.5, 0); 
 scene.add(circlemesh); 
- 
-var paraFunction=function(a, b) 
+
+/*var paraFunction=function(a, b) 
 { 
 	var x=-5+5*a; 
 	var y=-5+5*b; 
@@ -56,7 +56,7 @@ const parageometry= new THREE.ParametricGeometry(paraFunction, 8, 8);
 const paramaterial= new THREE.MeshBasicMaterial( {color: 0xF3FFE2});
 const paramesh= new THREE.Mesh(parageometry, paramaterial);
 paramesh.position.set(0, -2, -100);
-scene.add(paramesh);
+scene.add(paramesh);*/
 
 const planegeometry=new THREE.PlaneGeometry(10, 10); 
 const planematerial=new THREE.MeshPhongMaterial({ 

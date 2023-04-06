@@ -44,7 +44,7 @@ circlemesh.position.set(2, 0, -6);
 circlemesh.rotation.set(0, 0.5, 0); 
 scene.add(circlemesh); 
  
-const paraFunction=function(a, b) { 
+var paraFunction=function(a, b) { 
 	 var x=-5+5*a; var y=-5+5*b; 
 	 var z=(Math.sin(a*Math.PI)+Math.sin(b*Math.PI))*(-7); 
 	 return new THREE.Vector3(x, y, z); } 

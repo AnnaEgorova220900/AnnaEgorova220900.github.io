@@ -58,6 +58,11 @@ const paramesh= new THREE.Mesh(parageometry, paramaterial);
 paramesh.position.set(0, -2, -100);
 scene.add(paramesh);*/
 
+var delta=0 
+delta+=0.1; 
+planegeometry.verticesNeedUpdate=true;
+planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
+
 const planegeometry=new THREE.PlaneGeometry(10, 10); 
 const planematerial=new THREE.MeshPhongMaterial({ 
 	color: 0xF3FFE2, 
@@ -67,13 +72,6 @@ const planematerial=new THREE.MeshPhongMaterial({
 const planemesh=new THREE.Mesh(planegeometry, planematerial); 
 planemesh.position.set(0, -20, -100); 
 scene.add(planemesh); 
-
-var delta=0 
-delta+=0.1; 
-planegeometry.verticesNeedUpdate=true;
-planegeometry.vertices[0].z=-25+Math.sin(delta)*50; 
-
-	
 
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(lightOne);

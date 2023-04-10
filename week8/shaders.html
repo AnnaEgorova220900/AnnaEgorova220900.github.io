@@ -1,7 +1,8 @@
-<!DOCTYPE html> <html> 
+<!DOCTYPE html> 
+<html> 
   <head><title>threeJS shaders</title></head> 
   <body> <canvas id="Canvas"></canvas> 
-    <script src="three.js-dev/build/three.js"></script> 
+    <!--<script src="three.js-dev/build/three.js"></script> -->
     <!-- Вершинний шейдер --> 
     <script type="x-shader/x-vertex" id="vertexShader"> 
            void main()
@@ -28,7 +29,9 @@
          }
     </script>
     
-    <script> 
+    <script type="module"> 
+
+	import * as THREE from '../three/three.module.js';
      const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('Canvas'), antialias: true});
       renderer.setClearColor(0xCBEFFF); 
       renderer.setPixelRatio(window.devicePixelRatio); 
@@ -50,15 +53,15 @@
       
       var customMat=new THREE.ShaderMaterial({
           uniforms: customUniforms,
-          vertexShader: document.getElementaryById('vertexShader').textContent,
-          fragmentShader: document.getElementaryById('fragmentShader').textContent});
+          vertexShader: document.getElementById('vertexShader').textContent,
+          fragmentShader: document.getElementById('fragmentShader').textContent});
       
       var boxgeometry=new THREE.BoxBufferGeometry(100, 100, 100, 10, 10, 10); 
       var boxmesh=new THREE.Mesh(boxgeometry, customMat); 
       boxmesh.position.set(-100, 0, -1000); 
       scene.add(boxmesh); 
       
-      var cubegeometry=new THREE.CubeGeometry(100, 100, 100); 
+      var cubegeometry=new THREE.BoxGeometry(100, 100, 100); 
       var cubemesh=new THREE.Mesh(cubegeometry, customMat); 
       cubemesh.position.set(150, 0, -1000); 
       scene.add(cubemesh); 

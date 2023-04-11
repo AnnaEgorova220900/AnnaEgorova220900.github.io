@@ -1,35 +1,17 @@
 <html>
-	<head>
-		<script src="../aframe/aframe.min.js"></script>
-		<script src="../ar/aframe-ar-nft.js"></script>
-		<script>
-			AFRAME.registerComponent('registerevents', {   
-			       init: function () {     
-					var marker = this.el;      
-					marker.addEventListener('markerFound', function() {       
-						   console.log('markerFound', marker.id);
-					 });     
-					 marker.addEventListener('markerLost', function() {       
-						    console.log('markerLost', marker.id);
-					 });   
-				 } 
-			});
-		</script>
+  <head>
+    <script src="../aframe/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: face.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
 
-	</head>
-	
-	<body>
-		<a-scene vr-mode-ui="enabled: false;"
-		    renderer="logarithmicDepthBuffer: true;"
-		    embedded arjs="trackingMethod: best;">
+      <a-entity mindar-image-target="targetIndex: 0">
+		<!--<a-sphere color="red" radius=0.1 position="0 0 0"></a-sphere>-->
+		<a-plane src="face.png"></a-sphere>
+      </a-entity>
 
-			    <a-nft emitevents registerevents
-			      type="nft"
-			      url="week9/bull"
-			      >
-				<a-octahedron  color="blue" radius=25></a-octahedron>
-			    </a-nft>
-		</a-scene>
-	</body>
-
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    </a-scene>
+  </body>
 </html>

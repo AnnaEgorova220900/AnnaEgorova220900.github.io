@@ -10,7 +10,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-/*
+	/*
 	const boxmaterials = [
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
@@ -22,35 +22,35 @@ const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 	*/
 
 	const boxmaterials = [
-		new THREE.MeshBasicMaterial( { map: loader.load('Pd.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load('E.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load('Lu.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load('Uuo.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load('Cm.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load('Ra.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube1.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube2.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube3.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube4.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube5.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube6.png') } ),
 	];
 
-const cube = new THREE.Mesh( boxgeometry, boxmaterials );
-scene.add( cube );
+	cube = new THREE.Mesh( boxgeometry, boxmaterials );
+	scene.add( cube );
 
-const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
-const cylmaterial = new THREE.MeshLambertMaterial( {color: 0xffff00} );
-const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
-scene.add( cylinder );
-cylinder.position.z=-25;
-cylinder.position.x=5;
+	const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
+	const cylmaterial = new THREE.MeshLambertMaterial( {color: 0xffff00} );
+	const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
+	scene.add( cylinder );
+	cylinder.position.z=-25;
+	cylinder.position.x=5;
 
-var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(lightOne);
+	var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
+	scene.add(lightOne);
 
-var lightTwo=new THREE.PointLight(0xffffff, 0.5);
-scene.add(lightTwo);
+	lightTwo=new THREE.PointLight(0xffffff, 0.5);
+	scene.add(lightTwo);
 
-lightTwo.position.set(25, 0, -25)
+	lightTwo.position.set(25, 0, -25)
 
-//напівсферичне освітлення 
-var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1); 
-scene.add(lightThree);
+	//напівсферичне освітлення
+	var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
+	scene.add(lightThree);
 
 const texture = new THREE.TextureLoader().load( 'Plant.jpg' );
 

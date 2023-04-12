@@ -10,13 +10,24 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-const boxmaterials = [
+/*
+	const boxmaterials = [
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
 		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } )
+	];
+	*/
+
+	const boxmaterials = [
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Pd.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'E.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Lu.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Uuo.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Cm.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Ra.png') } ),
 	];
 
 const cube = new THREE.Mesh( boxgeometry, boxmaterials );

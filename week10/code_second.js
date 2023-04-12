@@ -33,6 +33,13 @@ lightTwo.position.set(25, 0, -25)
 var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1); 
 scene.add(lightThree);
 
+var planegeometry=new THREE.PlaneGeometry(10, 10); 
+var planematerial=new THREE.MeshBasicMaterial(); 
+var planemesh=new THREE.Mesh(planegeometry, planematerial); 
+planemesh.position.set(80, -20, -100);
+planemesh.scale.set(10, 10, 10); 
+scene.add(planemesh); 
+
 camera.position.z = 7;
 camera.position.x = 2;
 

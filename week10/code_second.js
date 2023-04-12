@@ -53,7 +53,7 @@ scene.add(planemesh);
 const beach = new THREE.TextureLoader().load( '360-degree-beach-panorama-1217568.jpg' );
 cylmaterial.map = beach;
 
-cube.scale.set(3, 3, 3);
+cube.scale.set(3,3,3);
 cube.position.x = cube.position.x - 1;
 
 camera.position.z = 7;

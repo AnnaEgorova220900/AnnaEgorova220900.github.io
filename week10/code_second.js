@@ -36,7 +36,7 @@ scene.add(lightThree);
 const texture = new THREE.TextureLoader().load( 'Plant.jpg' );
 
 var planegeometry=new THREE.PlaneGeometry(10, 10); 
-var planematerial=new THREE.MeshBasicMaterial({color:0x00ff00, map:texture); 
+var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map:texture}); 
 var planemesh=new THREE.Mesh(planegeometry, planematerial); 
 planemesh.position.set(70, -20, -100);
 planemesh.scale.set(10, 10, 10); 

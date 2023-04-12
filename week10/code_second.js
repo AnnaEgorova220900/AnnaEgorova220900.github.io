@@ -20,7 +20,7 @@ const boxmaterials = [
 	];
 
 cube = new THREE.Mesh( boxgeometry, boxmaterials );
-	scene.add( cube );
+scene.add( cube );
 
 const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
 const cylmaterial = new THREE.MeshLambertMaterial( {color: 0xffff00} );

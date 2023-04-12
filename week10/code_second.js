@@ -32,7 +32,7 @@ const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 		new THREE.MeshBasicMaterial( { map: loader.load( 'Uuo.jpg') } ),
 	];
 
-	cube = new THREE.Mesh( boxgeometry, boxmaterials );
+	var cube = new THREE.Mesh( boxgeometry, boxmaterials );
 	scene.add( cube );
 
 	const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );

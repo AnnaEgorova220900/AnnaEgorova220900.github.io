@@ -9,6 +9,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+var loader = new THREE.TextureLoader();
+
 const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 	/*
 	const boxmaterials = [
@@ -22,12 +24,12 @@ const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 	*/
 
 	const boxmaterials = [
-		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Cm.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/E.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Lu.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Pd.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Ra.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Uuo.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Cm.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'E.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Lu.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Pd.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Ra.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Uuo.jpg') } ),
 	];
 
 	cube = new THREE.Mesh( boxgeometry, boxmaterials );
@@ -52,7 +54,7 @@ const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 	var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 	scene.add(lightThree);
 
-const texture = new THREE.TextureLoader().load( 'Plant.jpg' );
+const texture = loader.load( 'Plant.jpg' );
 
 var planegeometry=new THREE.PlaneGeometry(10, 10); 
 var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map:texture}); 
@@ -61,7 +63,7 @@ planemesh.position.set(70, -20, -100);
 planemesh.scale.set(10, 10, 10); 
 scene.add(planemesh); 
 
-const beach = new THREE.TextureLoader().load( '360-degree-beach-panorama-1217568.jpg' );
+const beach = loader.load( '360-degree-beach-panorama-1217568.jpg' );
 cylmaterial.map = beach;
 
 cube.scale.set(3,3,3);

@@ -34,9 +34,9 @@ var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 scene.add(lightThree);
 
 var planegeometry=new THREE.PlaneGeometry(10, 10); 
-var planematerial=new THREE.MeshBasicMaterial(); 
+var planematerial=new THREE.MeshBasicMaterial({color:0x00ff00}); 
 var planemesh=new THREE.Mesh(planegeometry, planematerial); 
-planemesh.position.set(80, -20, -100);
+planemesh.position.set(70, -20, -100);
 planemesh.scale.set(10, 10, 10); 
 scene.add(planemesh); 
 

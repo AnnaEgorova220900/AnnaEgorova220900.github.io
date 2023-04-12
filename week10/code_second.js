@@ -63,4 +63,3 @@ function animate() {
 }
 
 animate();
-Footer

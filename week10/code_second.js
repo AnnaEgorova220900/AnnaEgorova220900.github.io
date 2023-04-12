@@ -22,12 +22,12 @@ const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 	*/
 
 	const boxmaterials = [
-		new THREE.MeshBasicMaterial( { map: loader.load( 'Cm.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'E.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'Lu.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'Pd.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'Ra.jpg') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( 'Uuo.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Cm.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/E.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Lu.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Pd.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Ra.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'week10/Uuo.jpg') } ),
 	];
 
 	cube = new THREE.Mesh( boxgeometry, boxmaterials );

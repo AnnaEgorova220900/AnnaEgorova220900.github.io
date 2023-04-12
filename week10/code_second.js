@@ -29,6 +29,10 @@ scene.add(lightTwo);
 
 lightTwo.position.set(25, 0, -25)
 
+//напівсферичне освітлення 
+var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1); 
+scene.add(lightThree);
+
 camera.position.z = 7;
 camera.position.x = 2;
 

@@ -10,8 +10,16 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-const boxmaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( boxgeometry, boxmaterial );
+const boxmaterials = [
+	new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
+	new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
+        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
+        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
+        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
+        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } )
+];
+
+const cube = new THREE.Mesh( boxgeometry, boxmaterials );
 scene.add( cube );
 
 const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
@@ -42,6 +50,12 @@ planemesh.position.set(70, -20, -100);
 planemesh.scale.set(10, 10, 10); 
 scene.add(planemesh); 
 
+const beach = new THREE.TextureLoader().load( '360-degree-beach-panorama-1217568.jpg' );
+cylmaterial.map = beach;
+
+cube.scale.set(3, 3, 3);
+cube.position.x = cube.position.x - 1;
+
 camera.position.z = 7;
 camera.position.x = 2;
 
@@ -55,9 +69,9 @@ function animate() {
 	renderer.render( scene, camera );
 	lightTwo.position.x = radius * Math.cos(angle) + 5;
 	lightTwo.position.y = radius * Math.sin(angle);
-/*
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
+/*
 	camera.position.x = radius * Math.cos(angle) + 2;
 	camera.position.y = radius * Math.sin(angle);
 */

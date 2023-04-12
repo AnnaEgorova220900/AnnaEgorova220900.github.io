@@ -11,13 +11,13 @@ document.body.appendChild( renderer.domElement );
 
 const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 const boxmaterials = [
-	new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
-	new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
-        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
-        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
-        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } ),
-        new THREE.MeshBasicMaterial( { color: Math.ramdom()*0xffffff } )
-];
+		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
+		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
+		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
+		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
+		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
+		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } )
+	];
 
 const cube = new THREE.Mesh( boxgeometry, boxmaterials );
 scene.add( cube );

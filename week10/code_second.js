@@ -33,6 +33,8 @@ lightTwo.position.set(25, 0, -25)
 var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1); 
 scene.add(lightThree);
 
+const texture = new THREE.TextureLoader().load( 'textures/land_ocean_ice_cloud_2048.jpg' );
+
 var planegeometry=new THREE.PlaneGeometry(10, 10); 
 var planematerial=new THREE.MeshBasicMaterial({color:0x00ff00}); 
 var planemesh=new THREE.Mesh(planegeometry, planematerial); 

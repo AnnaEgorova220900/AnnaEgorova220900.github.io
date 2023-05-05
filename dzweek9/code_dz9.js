@@ -24,11 +24,11 @@ window.addEventListener("DOMContentLoaded", () => {
     // Load a glTF resource
     loader.load(
       // resource URL
-      'tyrannosaurus_rex.glb',
+      'train.glb',
       // called when the resource is loaded
       function ( gltf ) {
          //gltf.scene.scale.set(0.1, 0.1, 0.1);
-         gltf.scene.position.z=-5; 
+         gltf.scene.position.z=-10; 
          gltf.scene.rotation.y=+Math.PI/4; 
          scene.add( gltf.scene );
           //console.log(gtfl);

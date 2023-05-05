@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 0.1, 3000 );
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer(antialias: true);
 
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setClearColor(0xffffff);
@@ -27,10 +27,11 @@ window.addEventListener("DOMContentLoaded", () => {
       'train.glb',
       // called when the resource is loaded
       function ( gltf ) {
-         gltf.scene.scale.set(0.1, 0.1, 0.1);
-         gltf.scene.position.z=-3; 
+         //gltf.scene.scale.set(0.1, 0.1, 0.1);
+         gltf.scene.position.z=-6; 
+         gltf.scene.rotation.y=+Math.PI/4; 
          scene.add( gltf.scene );
-          console.log(gtfl);
+          //console.log(gtfl);
       },
       // called while loading is progressing
       function ( xhr ) {

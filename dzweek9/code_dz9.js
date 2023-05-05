@@ -1,0 +1,49 @@
+import * as THREE from 'three';
+
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 0.1, 3000 );
+    const renderer = new THREE.WebGLRenderer();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(lightOne);
+
+    const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+    scene.add( light );
+
+      // Instantiate a loader
+    const loader = new GLTFLoader();
+
+    // Load a glTF resource
+    loader.load(
+      // resource URL
+      'train.glb',
+      // called when the resource is loaded
+      function ( gltf ) {
+        scene.add( gltf.scene );
+      },
+      // called while loading is progressing
+      function ( xhr ) {
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+      },
+      // called when loading has errors
+      function ( error ) {
+        console.log( 'An error happened' );
+      }
+    );    
+
+    function animate() {
+      requestAnimationFrame( animate );
+      renderer.render( scene, camera );
+    }
+    animate();
+
+});
+

@@ -1,7 +1,7 @@
 //import * as THREE from '../three/three.module.js';
 import * as THREE from 'three';
 
-import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometries.js';
+import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
 
 // Our Javascript will go here.
 
@@ -55,7 +55,7 @@ var paraFunction=function(a, b)
 	return new THREE.Vector3(x, y, z); 
 } 
 
-const parageometry = new ParametricGeometry(paraFunction, 8, 8);
+const parageometry = new THREE.ParametricGeometry(paraFunction, 8, 8);
 const paramaterial= new THREE.MeshBasicMaterial( {color: 0xF3FFE2});
 const paramesh= new THREE.Mesh(parageometry, paramaterial);
 paramesh.position.set(0, -2, -100);
@@ -82,8 +82,8 @@ scene.add(lightTwo);
 
 function animate() {
 	delta += 0.1; 
-	//planegeometry.vertices[0].z = -25 + Math.sin(delta)*50; 
-	//planegeometry.verticesNeedUpdate = true;
+	planegeometry.vertices[0].z = -25 + Math.sin(delta)*50; 
+	planegeometry.verticesNeedUpdate = true;
 	
         pyramidmesh.rotation.y+=0.1; 
 	

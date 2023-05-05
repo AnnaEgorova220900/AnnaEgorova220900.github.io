@@ -12,10 +12,10 @@ window.addEventListener("DOMContentLoaded", () => {
     renderer.setClearColor(0xffffff);
     document.body.appendChild( renderer.domElement );
 
-    var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
+    var lightOne=new THREE.AmbientLight(0xffffff, 1);
     scene.add(lightOne);
 
-    const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+    const light = new THREE.HemisphereLight( 0xffffbb, 0xcccccc, 1 );
     scene.add( light );
 
       // Instantiate a loader

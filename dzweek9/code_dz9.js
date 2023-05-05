@@ -27,7 +27,8 @@ window.addEventListener("DOMContentLoaded", () => {
       'train.glb',
       // called when the resource is loaded
       function ( gltf ) {
-          gltf.scene.scale.set(0.1, 0.1, 0.1);
+         gltf.scene.scale.set(0.1, 0.1, 0.1);
+         gltf.scene.position.z=-3; 
          scene.add( gltf.scene );
           console.log(gtfl);
       },

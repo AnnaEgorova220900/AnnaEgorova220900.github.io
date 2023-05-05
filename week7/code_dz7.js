@@ -1,7 +1,7 @@
 //import * as THREE from '../three/three.module.js';
 import * as THREE from 'three';
 
-import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
+import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometries.js';
 
 // Our Javascript will go here.
 

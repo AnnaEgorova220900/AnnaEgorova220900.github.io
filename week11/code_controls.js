@@ -46,23 +46,13 @@ function init()
 
 	if(document.getElementById( 'MapControls' ).checked)
 	{
-		controls = new MapControls( camera, renderer.domElement );
-		controls.enableDamping = true;
+	   controls = new MapControls( camera, renderer.domElement );
+	   controls.enableDamping = true;
 	}
 
 	var loader = new THREE.TextureLoader();
 
 	const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-	/*
-	const boxmaterials = [
-		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
-		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
-		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
-		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
-		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } ),
-		new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff } )
-	];
-	*/
 
 	const boxmaterials = [
 		new THREE.MeshBasicMaterial( { map: loader.load( 'Cm.jpg') } ),
@@ -72,7 +62,6 @@ function init()
 		new THREE.MeshBasicMaterial( { map: loader.load( 'Ra.jpg') } ),
 		new THREE.MeshBasicMaterial( { map: loader.load( 'Uuo.jpg') } ),
 	];
-
 
 	cube = new THREE.Mesh( boxgeometry, boxmaterials );
 	scene.add( cube );
@@ -92,15 +81,12 @@ function init()
 
 	lightTwo.position.set(25, 0, -25)
 
-	//напівсферичне освітлення
 	var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 	scene.add(lightThree);
 
-	//const texture = loader.load( 'Plant.jpg' );
 	const video = document.getElementById( 'video' );
 	video.play();
 	const texture = new THREE.VideoTexture( video );
-
 
 	var planegeometry=new THREE.PlaneGeometry(16, 9);
 	var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map:texture});
@@ -112,8 +98,6 @@ function init()
 	const video2 = document.getElementById( 'video2' );
 	video2.play();
 	const texture2 = new THREE.VideoTexture( video2 );
-	//const beach = loader.load( '360-degree-beach-panorama-1217568.jpg' );
-	//cylmaterial.map = beach;
 	cylmaterial.map = texture2;
 
 	cube.scale.set(3,3,3);
@@ -152,7 +136,6 @@ function init()
 
 }
 
-
 let angle = 0, radius = 47;
 
 const timer = new THREE.Clock();
@@ -164,10 +147,7 @@ function animate() {
 	lightTwo.position.y = radius * Math.sin(angle);
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
-/*
-	camera.position.x = radius * Math.cos(angle) + 2;
-	camera.position.y = radius * Math.sin(angle);
-*/
+
 	if(document.getElementById( 'OrbitControls' ).checked || document.getElementById( 'MapControls' ).checked)
 		controls.update();
 	if(document.getElementById( 'FlyControls' ).checked)
@@ -175,9 +155,7 @@ function animate() {
 	angle += Math.PI/180;
 }
 
-
 const startButton = document.getElementById( 'press' );
-
 
 startButton.addEventListener( 'click', function () {
 	//startButton.style.display="none";
@@ -185,8 +163,3 @@ startButton.addEventListener( 'click', function () {
 	init();
 	animate();
 } );
-
-
-
-//init();
-//animate();

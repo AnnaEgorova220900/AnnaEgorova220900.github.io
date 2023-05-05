@@ -65,13 +65,14 @@ function init()
 	*/
 
 	const boxmaterials = [
-		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube1.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube2.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube3.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube4.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube5.png') } ),
-		new THREE.MeshBasicMaterial( { map: loader.load( '/assets/cube6.png') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Cm.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'E.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Lu.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Pd.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Ra.jpg') } ),
+		new THREE.MeshBasicMaterial( { map: loader.load( 'Uuo.jpg') } ),
 	];
+
 
 	cube = new THREE.Mesh( boxgeometry, boxmaterials );
 	scene.add( cube );
@@ -95,7 +96,7 @@ function init()
 	var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 	scene.add(lightThree);
 
-	//const texture = loader.load( '/assets/plants.jpg' );
+	//const texture = loader.load( 'Plant.jpg' );
 	const video = document.getElementById( 'video' );
 	video.play();
 	const texture = new THREE.VideoTexture( video );
@@ -111,7 +112,7 @@ function init()
 	const video2 = document.getElementById( 'video2' );
 	video2.play();
 	const texture2 = new THREE.VideoTexture( video2 );
-	//const beach = loader.load( '/assets/360-degree-beach-panorama-1217568.jpg' );
+	//const beach = loader.load( '360-degree-beach-panorama-1217568.jpg' );
 	//cylmaterial.map = beach;
 	cylmaterial.map = texture2;
 
@@ -129,7 +130,7 @@ function init()
 
 	const modelloader = new GLTFLoader();
 
-	modelloader.load( '/assets/pokemon_sudowoodo_-_tree.glb', function ( gltf ) {
+	modelloader.load( 'pokemon_sudowoodo_-_tree.glb', function ( gltf ) {
 		scene.add(gltf.scene);
 		gltf.scene.position.set(-5,2,0);
 		gltf.scene.scale.set(2,2,2);
@@ -139,7 +140,7 @@ function init()
 		console.error( error );
 	} );
 
-	modelloader.load( '/assets/tree/scene.gltf', function ( gltf ) {
+	modelloader.load( 'scene.gltf', function ( gltf ) {
 		scene.add(gltf.scene);
 		gltf.scene.position.set(-5,-2,0);
 		gltf.scene.scale.set(0.01,0.01,0.01);

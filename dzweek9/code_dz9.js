@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor(0xffffff);
     document.body.appendChild( renderer.domElement );
 
     var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
@@ -26,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
       'train.glb',
       // called when the resource is loaded
       function ( gltf ) {
-        scene.add( gltf.scene );
+       // scene.add( gltf.scene );
       },
       // called while loading is progressing
       function ( xhr ) {

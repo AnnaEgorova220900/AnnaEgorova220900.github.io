@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const renderer = new THREE.WebGLRenderer({antialias: true});
 
     renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.setClearColor(0xffffff);
+    renderer.setClearColor(0xecd1ff);
     document.body.appendChild( renderer.domElement );
 
     var lightOne=new THREE.AmbientLight(0xffffff, 1);
@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // called when the resource is loaded
       function ( gltf ) {
          //gltf.scene.scale.set(0.1, 0.1, 0.1);
-         gltf.scene.position.z=-10; 
+         gltf.scene.position.z=-5; 
          gltf.scene.rotation.y=+Math.PI/4; 
          scene.add( gltf.scene );
           //console.log(gtfl);

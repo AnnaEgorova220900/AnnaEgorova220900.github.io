@@ -32,11 +32,11 @@
             const long = position.coords.longitude;
 
             // Додавання куба зліва від користувача
-            const leftLat = lat - 0.0002; // обчислюємо ліву широту
+            const leftLat = lat - 0.0001; // обчислюємо ліву широту
             addCube(leftLat, long, 'blue');
 
             // Додавання куба справа від користувача
-            const rightLat = lat + 0.0002; // обчислюємо праву широту
+            const rightLat = lat + 0.0001; // обчислюємо праву широту
             addCube(rightLat, long, 'red');
         }, function(error) {
             console.error(error);

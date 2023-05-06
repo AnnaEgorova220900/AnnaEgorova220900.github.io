@@ -14,8 +14,8 @@
     </a-scene>
 
     <script>
-        // Функція, яка додає новий куб з відповідними координатами
-        function addCube(lat, long, color) {
+        function addCube(lat, long, color) 
+        {
             const scene = document.querySelector('a-scene');
 
             const cube = document.createElement('a-box');
@@ -26,17 +26,14 @@
             scene.appendChild(cube);
         }
 
-        // Отримання геолокації користувача
         navigator.geolocation.getCurrentPosition(function(position) {
             const lat = position.coords.latitude;
             const long = position.coords.longitude;
 
-            // Додавання куба зліва від користувача
-            const leftLat = lat - 0.0001; // обчислюємо ліву широту
+            const leftLat = lat - 0.0001; 
             addCube(leftLat, long, 'yellow');
 
-            // Додавання куба справа від користувача
-            const rightLat = lat + 0.0001; // обчислюємо праву широту
+            const rightLat = lat + 0.0001; 
             addCube(rightLat, long, 'green');
         }, function(error) {
             console.error(error);

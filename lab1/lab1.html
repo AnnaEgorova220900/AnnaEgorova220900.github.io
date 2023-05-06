@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Модель циліндра, що скочується похилою площиною</title>
-  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-</head>
-<body>
-  <a-scene>
-    <a-assets>
-      <a-mixin id="forceArrow" geometry="primitive: cone; height: 1; radiusBottom: 0.1;" material="color: red;"></a-mixin>
-    </a-assets>
-
-    <a-entity position="0 1.6 -4">
-      <a-camera></a-camera>
-    </a-entity>
-
-    <a-entity position="0 -1.5 -5">
-      <a-plane height="5" width="5" rotation="-90 0 0" color="#7BC8A4"></a-plane>
-      <a-entity position="-1 1 0" rotation="0 0 -30">
-        <a-cylinder height="2" radius="0.5" color="#FFC65D" dynamic-body></a-cylinder>
-        <a-entity mixin="forceArrow" position="0 0 0" rotation="-90 0 0"></a-entity>
+  <head>
+    <meta charset="utf-8" />
+    <title>A-Frame Cylinder Demo</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glencojo/aframe-physics-system"></script>
+    <script>
+      AFRAME.registerComponent('cylinder', {
+        init: function () {
+          this.el.setAttribute('dynamic-body', true);
+          this.el.setAttribute('shape', 'cylinder');
+          this.el.setAttribute('radius-bottom', 0.5);
+          this.el.setAttribute('height', 2);
+          this.el.setAttribute('color', '#FFC65D');
+          this.el.setAttribute('position', '-1 1 0');
+        }
+      });
+    </script>
+    <style>
+      .forceArrow {
+        material: color: #f00;
+        geometry: primitive: cone; height: 0.5; radiusBottom: 0.05; radiusTop: 0.0;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-mixin id="forceArrow" class="forceArrow"></a-mixin>
+      </a-assets>
+      <a-entity light="type: directional; color: #FFF; intensity: 0.7;" position="-1 1 0"></a-entity>
+      <a-entity position="0 0 -5">
+        <a-plane height="20" width="20" color="#7BC8A4" static-body></a-plane>
       </a-entity>
-    </a-entity>
-
-    <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-1 5 -1"></a-entity>
-
-    <a-sky color="#ECECEC"></a-sky>
-  </a-scene>
-</body>
+      <a-entity position="0 1.5 -2" rotation="-30 0 0">
+        <a-entity mixin="forceArrow" position="0 0 0" rotation="-90 0 0"></a-entity>
+        <a-entity mixin="forceArrow" position="0.7 1.4 0" rotation="0 0 -90" scale="0.5 0.5 1"></a-entity>
+        <a-entity mixin="forceArrow" position="-0.7 1.4 0" rotation="0 0 90" scale="0.5 0.5 1"></a-entity>
+        <a-entity mixin="forceArrow" position="0 -1.4 0" rotation="0 0 -180" scale="0.5 0.5 1"></a-entity>
+        <a-entity cylinder></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
 

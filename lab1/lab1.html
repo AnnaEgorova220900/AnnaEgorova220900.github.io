@@ -11,12 +11,15 @@
       <a-plane position="0 -1 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
       
       <!-- Циліндр -->
-      <a-cylinder position="-2 2 -2" radius="0.5" height="1.5" color="#EF2D5E"></a-cylinder>
+      <a-cylinder dynamic-body position="-2 2 -2" radius="0.5" height="1.5" color="#EF2D5E"></a-cylinder>
       
       <!-- Вектори сил -->
-      <a-entity arrow="start: 0 0 0; end: 0 1 0; color: #FFC300"></a-entity>
-      <a-entity arrow="start: 0 0 0; end: 0 -1 0; color: #FFC300; position: -2 2 -2"></a-entity>
-      <a-entity arrow="start: 0 0 0; end: 0 -0.5 0.866; color: #2980B9; position: -2 2 -2"></a-entity>
+      <a-entity arrow="start: -2 2 -2; end: -2.5 1.5 -1.732; color: #2980B9"></a-entity>
+      <a-entity arrow="start: -2 2 -2; end: -2 1  -2; color: #FFC300"></a-entity>
+      <a-entity arrow="start: -2 2 -2; end: -2.5 2.5 -2; color: #FFC300"></a-entity>
+      
+      <!-- Джерело світла -->
+      <a-entity light="type: point; intensity: 2; color: #FFF; distance: 30" position="0 5 0"></a-entity>
     </a-scene>
   </body>
 </html>

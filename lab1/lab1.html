@@ -15,7 +15,9 @@
 
       <a-plane position="0 0 -4" rotation="-45 0 0" width="20" height="20" color="#7BC8A4" static-body mass="0"></a-plane>
 
-      <a-cylinder id="my-cylinder" position="0 5 -5" radius="1" height="3" color="#EF2D5E" dynamic-body mass="1" constraint="target: 0 5 -5; collideConnected: true; axis: 0 1 0;" animation="property: position; to: 0 1.5 -5; dur: 2000;"></a-cylinder>
+      <a-cylinder position="0 5 -5" radius="1" height="5" color="#EF2D5E" dynamic-body mass="10" constraint="target: 0 5 -5; collideConnected: true; axis: 0 1 0;">
+        <a-animation attribute="position" to="0 1.5 -5" dur="2000"></a-animation>
+      </a-cylinder>
 
       <a-entity line="start: 0 5 -5; end: 0 3 -5; color: blue;"></a-entity>
       <a-entity line="start: 0 5 -5; end: 0 7 -5; color: red;"></a-entity>
@@ -25,4 +27,5 @@
     </a-scene>
   </body>
 </html>
+
 

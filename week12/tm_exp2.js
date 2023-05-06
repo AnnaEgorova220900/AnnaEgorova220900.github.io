@@ -5,30 +5,30 @@ init();
 // Load the image model and setup the webcam
 async function init() {
 
-    const model = handPoseDetection.SupportedModels.MediaPipeHands;
-    const detectorConfig = {
-        runtime: 'mediapipe', // or 'tfjs',
-        solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands',
-        modelType: 'lite'
-    }
-    detector = await handPoseDetection.createDetector(model, detectorConfig);
+	const model = handPoseDetection.SupportedModels.MediaPipeHands;
+	const detectorConfig = {
+	  runtime: 'mediapipe', // or 'tfjs',
+	  solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands',
+	  modelType: 'lite'
+	}
+	detector = await handPoseDetection.createDetector(model, detectorConfig);	
 
-    // Convenience function to setup a webcam
-    const flip = true; // whether to flip the webcam
-    webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
-    await webcam.setup(); // request access to the webcam
-    await webcam.play();
-    window.requestAnimationFrame(loop);
+	// Convenience function to setup a webcam
+	const flip = true; // whether to flip the webcam
+	webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
+	await webcam.setup(); // request access to the webcam
+	await webcam.play();
+	window.requestAnimationFrame(loop);
 
-    // append elements to the DOM
-    document.getElementById("webcam-container").appendChild(webcam.canvas);
-    labelContainer = document.getElementById("label-container");
+	// append elements to the DOM
+	document.getElementById("webcam-container").appendChild(webcam.canvas);
+	labelContainer = document.getElementById("label-container");
 }
 
 async function loop() {
-    webcam.update(); // update the webcam frame
-    await predict();
-    window.requestAnimationFrame(loop);
+	webcam.update(); // update the webcam frame
+	await predict();
+	window.requestAnimationFrame(loop);
 }
 
 const skipCount = 5;
@@ -36,32 +36,62 @@ let frameCount = 0;
 
 // run the webcam image through the image model
 async function predict() {
-    if (frameCount % skipCount == 0) {
-        const hands = await detector.estimateHands(webcam.canvas);
+	if(frameCount % skipCount == 0)
+	{
+		const hands = await detector.estimateHands(webcam.canvas);
+		//console.log(hands);
 
-        if (hands.length == 0) {
-            labelContainer.innerHTML = "Не бачу рук";
-        } else {
-            const fingerJoints = hands[0].landmarks; // get landmarks of the hand
-            const fingerNames = hands[0].annotations.thumb.concat(hands[0].annotations.indexFinger, hands[0].annotations.middleFinger, hands[0].annotations.ringFinger, hands[0].annotations.pinky); // get names of the fingers
+		if(hands.length == 0)
+			labelContainer.innerHTML = "Не бачу рук";
+		else
+		{
+			const hand = hands[0];
+			const landmarks = hand.landmarks;
 
-            const angles = [];
-            for (let i = 0; i < fingerJoints.length; i++) {
-                const [a, b, c] = fingerJoints[i]; // get three consecutive points of the finger
-                const AB = [a[0] - b[0], a[1] - b[1]]; // get vector AB
-                const BC = [c[0] - b[0], c[1] - b[1]]; // get vector BC
-                const angle = Math.acos((AB[0] * BC[0] + AB[1] * BC[1]) / (Math.sqrt(AB[0] ** 2 + AB[1] ** 2) * Math.sqrt(BC[0] ** 2 + BC[1] ** 2))) * 180 / Math.PI; // calculate angle using scalar product formula
-                angles.push(angle);
-            }
+			// calculate finger lengths
+			const fingerLengths = [				distance(landmarks[5], landmarks[9]), // thumb
+				distance(landmarks[9], landmarks[13]), // index
+				distance(landmarks[13], landmarks[17]), // middle
+				distance(landmarks[17], landmarks[21]), // ring
+				distance(landmarks[21], landmarks[25]) // pinky
+			];
 
-            labelContainer.innerHTML = "";
-            for (let i = 0; i < angles.length; i++) {
-                labelContainer.innerHTML += fingerNames[i] + ": " + angles[i].toFixed(2) + "°<br>"; // display angles rounded to 2 decimal places
-            }
-        }
+			// calculate angles between fingers
+			const angles = [				angle(landmarks[0], landmarks[1], landmarks[2]), // thumb
+				angle(landmarks[5], landmarks[6], landmarks[7]), // index
+				angle(landmarks[9], landmarks[10], landmarks[11]),// middle
+        distance(landmarks[14], landmarks[15]), // ring
+        distance(landmarks[18], landmarks[19]) // pinky
+    ];
+
+    // calculate angles between fingers
+    const angles = [        angle(landmarks[0], landmarks[1], landmarks[2]), // thumb
+        angle(landmarks[5], landmarks[6], landmarks[7]), // index
+        angle(landmarks[9], landmarks[10], landmarks[11]), // middle
+        angle(landmarks[13], landmarks[14], landmarks[15]), // ring
+        angle(landmarks[17], landmarks[18], landmarks[19]) // pinky
+    ];
+
+    // output angles to label container
+    let label = "";
+    for (let i = 0; i < angles.length; i++) {
+        label += "Angle " + (i + 1) + ": " + angles[i].toFixed(2) + " degrees<br>";
     }
+    labelContainer.innerHTML = label;
+}
+function distance(a, b) {
+    const xDiff = a.x - b.x;
+    const yDiff = a.y - b.y;
+    return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+}
 
-    frameCount++;
+function angle(a, b, c) {
+    const radians = Math.atan2(c.y - b.y, c.x - b.x) - Math.atan2(a.y - b.y, a.x - b.x);
+    let degrees = radians * 180 / Math.PI;
+    if (degrees < 0) {
+        degrees += 360;
+    }
+    return degrees;
 }
 
 

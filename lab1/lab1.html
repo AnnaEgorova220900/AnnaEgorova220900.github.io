@@ -11,15 +11,15 @@
       <a-entity light="type: directional; color: #FFF; intensity: 0.8;" position="-1 2 1"></a-entity>
 
       <!-- Додайте площину, по якій скочується циліндр -->
-      <a-plane rotation="-90 0 0" width="10" height="10"></a-plane>
+      <a-plane material="color: #999" rotation="-90 0 0" width="10" height="10"></a-plane>
 
       <!-- Додайте циліндр -->
-      <a-cylinder radius="0.5" height="1" position="0 1.5 0" dynamic-body></a-cylinder>
+      <a-cylinder material="color: #555" radius="0.5" height="1" position="0 1.5 0" dynamic-body></a-cylinder>
 
       <!-- Додайте вектори сил, що діють на циліндр -->
-      <a-entity line="start: 0 1.5 0; end: 0 0 0; color: #F00;"></a-entity> <!-- Сила тяжіння -->
-      <a-entity line="start: 0.5 1.5 0; end: 0.5 1.5 -1; color: #0F0;"></a-entity> <!-- Сила опору повітря -->
-      <a-entity line="start: -0.5 1.5 0; end: -0.5 1.5 -0.5; color: #00F;"></a-entity> <!-- Сила тертя -->
+      <a-entity arrow="start: 0 1.5 0; end: 0 0 0; color: #F00;"></a-entity> <!-- Сила тяжіння -->
+      <a-entity arrow="start: 0.5 1.5 0; end: 0.5 1.5 -1; color: #0F0;"></a-entity> <!-- Сила опору повітря -->
+      <a-entity arrow="start: -0.5 1.5 0; end: -0.5 1.5 -0.5; color: #00F;"></a-entity> <!-- Сила тертя -->
       
       <!-- Додайте анімацію -->
       <a-animation attribute="position" dur="2000" to="0 0.5 -3"></a-animation>

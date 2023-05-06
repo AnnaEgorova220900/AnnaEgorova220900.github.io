@@ -2,45 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>A-Frame Cylinder Demo</title>
+    <title>Циліндр, що скочується похилою площиною</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@glencojo/aframe-physics-system"></script>
-    <script>
-      AFRAME.registerComponent('cylinder', {
-        init: function () {
-          this.el.setAttribute('dynamic-body', true);
-          this.el.setAttribute('shape', 'cylinder');
-          this.el.setAttribute('radius-bottom', 0.5);
-          this.el.setAttribute('height', 2);
-          this.el.setAttribute('color', '#FFC65D');
-          this.el.setAttribute('position', '-1 1 0');
-        }
-      });
-    </script>
-    <style>
-      .forceArrow {
-        material: color: #f00;
-        geometry: primitive: cone; height: 0.5; radiusBottom: 0.05; radiusTop: 0.0;
-      }
-    </style>
   </head>
   <body>
     <a-scene>
       <a-assets>
-        <a-mixin id="forceArrow" class="forceArrow"></a-mixin>
+        <img id="texture" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
       </a-assets>
-      <a-entity light="type: directional; color: #FFF; intensity: 0.7;" position="-1 1 0"></a-entity>
-      <a-entity position="0 0 -5">
-        <a-plane height="20" width="20" color="#7BC8A4" static-body></a-plane>
-      </a-entity>
-      <a-entity position="0 1.5 -2" rotation="-30 0 0">
-        <a-entity mixin="forceArrow" position="0 0 0" rotation="-90 0 0"></a-entity>
-        <a-entity mixin="forceArrow" position="0.7 1.4 0" rotation="0 0 -90" scale="0.5 0.5 1"></a-entity>
-        <a-entity mixin="forceArrow" position="-0.7 1.4 0" rotation="0 0 90" scale="0.5 0.5 1"></a-entity>
-        <a-entity mixin="forceArrow" position="0 -1.4 0" rotation="0 0 -180" scale="0.5 0.5 1"></a-entity>
-        <a-entity cylinder></a-entity>
-      </a-entity>
+      <a-entity id="cylinder"
+                geometry="primitive: cylinder; height: 2; radius: 1"
+                material="src: #texture"
+                position="0 1 0"
+                dynamic-body></a-entity>
+      <a-entity line="start: 0 1 0; end: 0 1 -1; color: red;"></a-entity> <!-- сила тяжіння -->
+      <a-entity line="start: 0 1 0; end: 1 1 0; color: blue;"></a-entity> <!-- сила реакції опори -->
+      <a-entity line="start: 0 1 0; end: 0.707 1 -0.707; color: green;"></a-entity> <!-- вектор швидкості -->
+      <a-box static-body color="#7BC8A4" position="0 -0.5 0" width="10" depth="10" height="0.1" rotation="45 0 0"></a-box> <!-- похила площина -->
     </a-scene>
   </body>
 </html>
+
 

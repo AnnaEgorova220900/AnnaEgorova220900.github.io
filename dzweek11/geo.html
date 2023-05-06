@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Домашнє завдання на тиждень 11</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Циліндр, що скочується з векторами сил в A-Frame</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
-    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
-</head>
-<body>
-    <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true" renderer="antialias: true; alpha: true">
-        <a-camera gps-camera="gpsMinDistance: 50"></a-camera>
-        <a-box color="yellow" gps-entity-place="latitude: 0; longitude: 0;" scale="5 5 5"></a-box>
-        <a-box color="green" gps-entity-place="latitude: 0; longitude: 0;" scale="5 5 5"></a-box>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Додайте похилу площину -->
+      <a-box position="0 -0.5 -3" rotation="-45 0 0" width="4" height="0.2" depth="4" color="#654321"></a-box>
+      
+      <!-- Додайте циліндр -->
+      <a-cylinder position="0 0.5 -3" radius="0.5" height="1" color="#FFC65D"></a-cylinder>
+      
+      <!-- Додайте вектори всіх сил, що діють на циліндр -->
+      <a-entity position="0 0.5 -3">
+        <a-entity arrow="start: 0 0 0; end: 0 -1 0; color: red;"></a-entity>
+        <a-entity arrow="start: 0 0 0; end: 0 1 0; color: green;"></a-entity>
+        <a-entity arrow="start: 0 0 0; end: 0 0 1; color: blue;"></a-entity>
+      </a-entity>
+      
+      <!-- Додайте анімацію -->
+      <a-animation attribute="position"
+                   from="0 0.5 -3" to="0 -0.5 -3"
+                   dur="5000" easing="linear" repeat="indefinite"></a-animation>
+      
+      <!-- Додайте джерело світла -->
+      <a-entity position="0 3 -4" light="type: point; color: #FFFFFF"></a-entity>
+      
+      <a-entity camera position="0 1.6 0"></a-entity>
     </a-scene>
-
-    <script>
-        function addCube(lat, long, color) 
-        {
-            const scene = document.querySelector('a-scene');
-
-            const cube = document.createElement('a-box');
-            cube.setAttribute('gps-entity-place', `latitude: ${lat}; longitude: ${long}`);
-            cube.setAttribute('color', color);
-            cube.setAttribute('scale', '5 5 5');
-
-            scene.appendChild(cube);
-        }
-
-        navigator.geolocation.getCurrentPosition(function(position) {
-            const lat = position.coords.latitude;
-            const long = position.coords.longitude;
-
-            const leftLat = lat - 0.0001; 
-            addCube(leftLat, long, 'yellow');
-
-            const rightLat = lat + 0.0001; 
-            addCube(rightLat, long, 'green');
-        }, function(error) {
-            console.error(error);
-        });
-    </script>
-</body>
+  </body>
 </html>
+
 

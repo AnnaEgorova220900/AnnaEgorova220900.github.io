@@ -64,14 +64,6 @@ async function predict() {
         distance(landmarks[18], landmarks[19]) // pinky
     ];
 
-    // calculate angles between fingers
-    const angles = [        angle(landmarks[0], landmarks[1], landmarks[2]), // thumb
-        angle(landmarks[5], landmarks[6], landmarks[7]), // index
-        angle(landmarks[9], landmarks[10], landmarks[11]), // middle
-        angle(landmarks[13], landmarks[14], landmarks[15]), // ring
-        angle(landmarks[17], landmarks[18], landmarks[19]) // pinky
-    ];
-
     // output angles to label container
     let label = "";
     for (let i = 0; i < angles.length; i++) {

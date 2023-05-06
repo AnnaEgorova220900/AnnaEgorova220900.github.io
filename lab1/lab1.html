@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Циліндр, що скочується з векторами сил в A-Frame</title>
+<head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     <a-scene>
-      <!-- Додайте похилу площину -->
-      <a-box position="0 -0.5 -3" rotation="-45 0 0" width="4" height="0.2" depth="4" color="#654321"></a-box>
-      
-      <!-- Додайте циліндр -->
-      <a-cylinder position="0 0.5 -3" radius="0.5" height="1" color="#FFC65D"></a-cylinder>
-      
-      <!-- Додайте вектори всіх сил, що діють на циліндр -->
-      <a-entity position="0 0.5 -3">
-        <a-entity arrow="start: 0 0 0; end: 0 -1 0; color: red;"></a-entity>
-        <a-entity arrow="start: 0 0 0; end: 0 1 0; color: green;"></a-entity>
-        <a-entity arrow="start: 0 0 0; end: 0 0 1; color: blue;"></a-entity>
-      </a-entity>
-      
-      <!-- Додайте анімацію -->
-      <a-animation attribute="position"
-                   from="0 0.5 -3" to="0 -0.5 -3"
-                   dur="5000" repeat="indefinite"></a-animation>
-      
-      <!-- Додайте джерело світла -->
-      <a-entity position="0 3 -4" light="type: point; color: #FFFFFF"></a-entity>
-      
-      <a-entity camera position="0 1.6 0"></a-entity>
+        <!-- Створення моделі циліндра -->
+        <a-cylinder position="0 2 -5" radius="1" height="2" color="red"></a-cylinder>
+
+        <!-- Зображення векторів сил, що діють на циліндр -->
+        <!-- Сила тяжіння -->
+        <a-entity position="0 2 -5" line="start: 0 0 0; end: 0 -2 0; color: blue;"></a-entity>
+        <!-- Сила реакції опори -->
+        <a-entity position="0 2 -5" line="start: 0 0 0; end: 1 0 0; color: green;"></a-entity>
+        <!-- Сила тертя -->
+        <a-entity position="0 2 -5" line="start: 0 0 0; end: -0.5 -1 0; color: yellow;"></a-entity>
     </a-scene>
-  </body>
+</body>
 </html>
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AR.js A-Frame Location-based</title>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+    </head>
+    <body>
+        <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true" renderer="antialias: true; alpha: true">
+            <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
+            <a-box color="red" gps-new-entity-place="latitude: 47.95953599033426; longitude: 33.42720631349198" scale="10 10 10"></a-box> <!--маленький стадіон-->
+            <a-box color="green" gps-new-entity-place="latitude: 47.9603752099777 ; longitude: 33.42845465829673" scale="10 10 10"></a-box> <!--стадіон школи -->
+            <a-sphere color="blue" gps-new-entity-place="latitude:47.959950959283915; longitude: 33.427423627143746" scale="5 5 5"></a-sphere><!--усередині будівлі 1-->
+            <a-sphere color="red" gps-new-entity-place="latitude: 47.960529313429845; longitude:33.42577675078549" scale="5 5 5"></a-sphere><!--усередині будівлі 2-->
+        </a-scene>
+    </body> 
+</html>

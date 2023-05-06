@@ -9,10 +9,12 @@
 	<body>
 		<a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true" renderer="antialias: true; alpha: true">
 		    <a-camera gps-new-camera="gpsMinDistance: 50"></a-camera>
-		    <a-box color="red" gps-new-entity-place="latitude: 47,9600805; longitude: 33,4274919" scale="10 10 10"></a-box>
-		    <a-box color="green" gps-new-entity-place="latitude:  47,9600383; longitude: 33,4275851" scale="10 10 10"></a-box>
-		    <a-sphere color="blue" gps-new-entity-place="latitude: 47,9600383; longitude: 33,4275851" scale="5 5 5"></a-sphere>
-		    <a-sphere color="yellow" gps-new-entity-place="latitude:  47,9607141; longitude: 33,4281705" scale="5 5 5"></a-sphere>
+		    //<a-box color="red" gps-new-entity-place="latitude: 47,9600805; longitude: 33,4274919" scale="10 10 10"></a-box>
+		   // <a-box color="green" gps-new-entity-place="latitude:  47,9600383; longitude: 33,4275851" scale="10 10 10"></a-box>
+		    //<a-sphere color="blue" gps-new-entity-place="latitude: 47,9600383; longitude: 33,4275851" scale="5 5 5"></a-sphere>
+		    //<a-sphere color="yellow" gps-new-entity-place="latitude:  47,9607141; longitude: 33,4281705" scale="5 5 5"></a-sphere>
+			<a-box color="red" gps-entity-place="latitude: ${gpsLatitude + 0.00005}; longitude: ${gpsLongitude - 0.00005}" scale="10 10 10"></a-box>
+    			<a-box color="green" gps-entity-place="latitude: ${gpsLatitude - 0.00005}; longitude: ${gpsLongitude + 0.00005}" scale="10 10 10"></a-box>
 		</a-scene>
 	</body>
 </html>  

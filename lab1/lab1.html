@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Циліндр на похилій площині з векторами сил</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <meta charset="utf-8">
+    <title>Циліндр, що скочується з векторами сил в A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <!-- Похила площина -->
-      <a-entity position="0 -1 0" rotation="-45 0 0" geometry="primitive: plane; width: 10; height: 10" material="color: #7BC8A4"></a-entity>
-
-      <!-- Циліндр -->
-      <a-cylinder position="-2 2 -2" radius="0.5" height="1.5" color="#EF2D5E" dynamic-body></a-cylinder>
-
-      <!-- Вектори сил -->
-      <a-entity arrow="start: 0 0 0; end: 0 1 0; color: #FFC300" position="-2 2 -2"></a-entity>
-      <a-entity arrow="start: 0 0 0; end: 0 -1 0; color: #FFC300; position: -2 2 -2"></a-entity>
-      <a-entity arrow="start: 0 0 0; end: 0 -0.5 0.866; color: #2980B9; position: -2 2 -2"></a-entity>
+      <!-- Додайте похилу площину -->
+      <a-box position="0 -0.5 -3" rotation="-45 0 0" width="4" height="0.2" depth="4" color="#654321"></a-box>
+      
+      <!-- Додайте циліндр -->
+      <a-cylinder position="0 0.5 -3" radius="0.5" height="1" color="#FFC65D"></a-cylinder>
+      
+      <!-- Додайте вектори всіх сил, що діють на циліндр -->
+      <a-entity position="0 0.5 -3">
+        <a-entity arrow="start: 0 0 0; end: 0 -1 0; color: red;"></a-entity>
+        <a-entity arrow="start: 0 0 0; end: 0 1 0; color: green;"></a-entity>
+        <a-entity arrow="start: 0 0 0; end: 0 0 1; color: blue;"></a-entity>
+      </a-entity>
+      
+      <!-- Додайте анімацію -->
+      <a-animation attribute="position"
+                   from="0 0.5 -3" to="0 -0.5 -3"
+                   dur="5000" repeat="indefinite"></a-animation>
+      
+      <!-- Додайте джерело світла -->
+      <a-entity position="0 3 -4" light="type: point; color: #FFFFFF"></a-entity>
+      
+      <a-entity camera position="0 1.6 0"></a-entity>
     </a-scene>
   </body>
 </html>
+

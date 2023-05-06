@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Циліндр на похилій площині</title>
+    <meta charset="utf-8">
+    <title>Модель циліндра, що скочується похилою площиною</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/physics/css/physx.css"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
   </head>
   <body>
-    <a-scene physics>
-      <a-assets>
-        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-      </a-assets>
+    <a-scene>
+      <!-- Додайте джерело світла -->
+      <a-entity light="type: directional; color: #FFF; intensity: 0.8;" position="-1 2 1"></a-entity>
 
-      <a-plane position="0 0 -4" rotation="-45 0 0" width="20" height="20" color="#7BC8A4" static-body mass="0"></a-plane>
+      <!-- Додайте площину, по якій скочується циліндр -->
+      <a-plane src="#wood" rotation="-90 0 0" width="10" height="10"></a-plane>
 
-      <a-cylinder position="0 5 -5" radius="1" height="5" color="#EF2D5E" dynamic-body mass="10" constraint="target: 0 5 -5; collideConnected: true; axis: 0 1 0;">
-        <a-animation attribute="position"
-                      from="0 5 -5"
-                      to="0 1.5 -5"
-                      dur="2000"
-                      easing="ease-out"></a-animation>
-      </a-cylinder>
+      <!-- Додайте циліндр -->
+      <a-cylinder src="#noise" radius="0.5" height="1" position="0 1.5 0" dynamic-body></a-cylinder>
 
-      <a-entity line="start: 0 5 -5; end: 0 3 -5; color: blue;"></a-entity>
-      <a-entity line="start: 0 5 -5; end: 0 7 -5; color: red;"></a-entity>
-      <a-entity line="start: 0 5 -5; end: 0 5 -3; color: green;"></a-entity>
-
-      <a-sky color="#ECECEC"></a-sky>
+      <!-- Додайте вектори сил, що діють на циліндр -->
+      <a-entity arrow="start: 0 1.5 0; end: 0 0 0; color: #F00;"></a-entity> <!-- Сила тяжіння -->
+      <a-entity arrow="start: 0.5 1.5 0; end: 0.5 1.5 -1; color: #0F0;"></a-entity> <!-- Сила опору повітря -->
+      <a-entity arrow="start: -0.5 1.5 0; end: -0.5 1.5 -0.5; color: #00F;"></a-entity> <!-- Сила тертя -->
+      
+      <!-- Додайте анімацію -->
+      <a-animation attribute="position" dur="2000" to="0 0.5 -3"></a-animation>
     </a-scene>
+
+    <!-- Додайте текстури -->
+    <img id="noise" src="https://cdn.aframe.io/examples/arjs/images/noise.png">
+    <img id="wood" src="https://cdn.aframe.io/examples/arjs/images/wood.jpg">
   </body>
 </html>
-

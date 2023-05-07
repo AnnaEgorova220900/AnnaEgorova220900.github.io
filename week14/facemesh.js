@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 	// Load a glTF resource
 	loader.load(
 		// resource URL
-		'../assets/hard_hat.glb',
+		'hard_hat.glb',
 		// called when the resource is loaded
 		function ( gltf ) {
 			gltf.scene.scale.set(0.025,0.025,0.025);
@@ -48,7 +48,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 		}
 	);
 
-      const texture = new THREE.TextureLoader().load('../assets/smth.png');
+      const texture = new THREE.TextureLoader().load('smth.png');
 
       const faceMesh = mindarThree.addFaceMesh();
       faceMesh.material.map = texture;

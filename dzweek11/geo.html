@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>AR.js A-Frame Location-based</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
@@ -9,37 +8,33 @@
 </head>
 <body>
     <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true" renderer="antialias: true; alpha: true">
-        <a-camera gps-new-camera="gpsMinDistance: 50"></a-camera>
-        <!-- Куб, що розташовується ліворуч від користувача -->
-        <a-box color="red" gps-new-entity-place="latitude: 47.95960103569422; longitude: 33.42726278942463 - 0.0002" scale="10 10 10"></a-box>
-        <!-- Куб, що розташовується праворуч від користувача -->
-        <a-box color="green" gps-new-entity-place="latitude: 47.95960103569422; longitude: 33.42726278942463 + 0.0002" scale="10 10 10"></a-box>
+        <a-camera gps-camera="gpsMinDistance: 50"></a-camera>
+        <a-box color="yellow" gps-entity-place="latitude: 0; longitude: 0;" scale="5 5 5"></a-box>
+        <a-box color="green" gps-entity-place="latitude: 0; longitude: 0;" scale="5 5 5"></a-box>
     </a-scene>
-
     <script>
         // Функція, яка додає новий куб з відповідними координатами
         function addCube(lat, long, color) {
             const scene = document.querySelector('a-scene');
-
             const cube = document.createElement('a-box');
             cube.setAttribute('gps-entity-place', `latitude: ${lat}; longitude: ${long}`);
             cube.setAttribute('color', color);
-            cube.setAttribute('scale', '10 10 10');
-
+            cube.setAttribute('scale', '5 5 5');
             scene.appendChild(cube);
         }
-
         // Отримання геолокації користувача
         navigator.geolocation.getCurrentPosition(function(position) {
             const lat = position.coords.latitude;
             const long = position.coords.longitude;
 
             // Додавання куба зліва від користувача
-            const leftLat = lat - 0.0002; // обчислюємо ліву широту
-            addCube(leftLat, long, 'red');
+            const leftLat = lat - 0.0001; // обчислюємо ліву широту
+            addCube(leftLat, long, 'blue');
+            addCube(leftLat, long, 'yellow');
 
             // Додавання куба справа від користувача
-            const rightLat = lat + 0.0002; // обчислюємо праву широту
+            const rightLat = lat + 0.0001; // обчислюємо праву широту
+            addCube(rightLat, long, 'red');
             addCube(rightLat, long, 'green');
         }, function(error) {
             console.error(error);
@@ -47,4 +42,3 @@
     </script>
 </body>
 </html>
-

@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       const anchor = mindarThree.addAnchor(1);
 
-	(new THREE.TextureLoader()).load(mesh_map.jpg')
+	(new THREE.TextureLoader()).load('mesh_map.jpg')
 
 
       const geometry = new THREE.PlaneGeometry( 1, 1 );

@@ -18,15 +18,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 	const light = new THREE.HemisphereLight( 0xffffbb, 0xcccccc, 1 );
 	scene.add( light );
 
-	<!--// Instantiate a loader
-	const loader = new GLTFLoader();
+	
+	<!--const loader = new GLTFLoader();
 
-
-	// Load a glTF resource
 	loader.load(
 		// resource URL
 		'hard_hat.glb',
-		// called when the resource is loaded
+		
 		function ( gltf ) {
 			gltf.scene.scale.set(0.025,0.025,0.025);
 			gltf.scene.position.y=-0.1;

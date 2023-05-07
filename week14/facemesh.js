@@ -19,32 +19,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 	scene.add( light );
 
 	
-	<!--const loader = new GLTFLoader();
 
-	loader.load(
-		// resource URL
-		'hard_hat.glb',
-		
-		function ( gltf ) {
-			gltf.scene.scale.set(0.025,0.025,0.025);
-			gltf.scene.position.y=-0.1;
-			gltf.scene.position.z=-0.2;
-			//gltf.scene.position.x=-1.5;
-			gltf.scene.rotation.x=Math.PI/10;
-//			scene.add(  );
-		        anchor2.group.add(gltf.scene);
-
-			//console.log(gltf);
-		},
-		// called while loading is progressing
-		function ( xhr ) {
-			console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-		},
-		// called when loading has errors
-		function ( error ) {
-			console.log( 'An error happened' );
-		}
-	);-->
 
       const texture = new THREE.TextureLoader().load('1_kqi9JK434G5M3UYKfX_BbA-removebg-preview.png');
 

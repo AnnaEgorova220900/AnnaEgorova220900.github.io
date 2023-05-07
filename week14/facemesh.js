@@ -48,7 +48,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 		}
 	);
 
-      const texture = new THREE.TextureLoader().load('smth.png');
+      const texture = new THREE.TextureLoader().load('1_kqi9JK434G5M3UYKfX_BbA.png');
 
       const faceMesh = mindarThree.addFaceMesh();
       faceMesh.material.map = texture;

@@ -68,7 +68,7 @@
 				const opposite = Math.hypot(points[1].x - points[2].x, points[1].y - points[2].y);
 				const angle = Math.atan2(opposite, adjacent);
 				const degrees = angle * 180 / Math.PI;
-				labelContainer.innerHTML += finger + " finger angle: " + degrees.toFixed(2) + " degrees<br>";
+				labelContainer.innerHTML += "Кут між пальцями " + finger1 + " та " + finger2 + ": " + degrees.toFixed(2) + " градусів<br>";;
 			}
 		}
 	}

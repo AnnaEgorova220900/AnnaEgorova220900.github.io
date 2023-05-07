@@ -14,7 +14,7 @@
       camera.position.z = 10;
   // Створення рендерера
   const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(320, 240);
+  renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
   // Додавання світла

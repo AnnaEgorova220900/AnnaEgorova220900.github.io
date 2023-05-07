@@ -53,7 +53,7 @@ labelContainer = document.getElementById("label-container");
 
                 // обчислення скалярного добутку та кута мі
 }
-
+	}
 // основний цикл
 async function loop() {
 webcam.update();

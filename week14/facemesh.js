@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 	const light = new THREE.HemisphereLight( 0xffffbb, 0xcccccc, 1 );
 	scene.add( light );
 
-	// Instantiate a loader
+	<!--// Instantiate a loader
 	const loader = new GLTFLoader();
 
 
@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 		function ( error ) {
 			console.log( 'An error happened' );
 		}
-	);
+	);-->
 
       const texture = new THREE.TextureLoader().load('1_kqi9JK434G5M3UYKfX_BbA-removebg-preview.png');
 

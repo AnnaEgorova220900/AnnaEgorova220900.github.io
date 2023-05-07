@@ -12,11 +12,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       const anchor = mindarThree.addAnchor(1);
 
-	
+	(new.THREE.TextureLoader()).load(mesh_map.jpg')
 
 
       const geometry = new THREE.PlaneGeometry( 1, 1 );
-      const material = new THREE.MeshBasicMaterial( {color: 0xffffff, transparent: true, opacity: 0.5, map:(new THREE.TextureLoader()).load( '../assets/my_face.png')} );
+      const material = new THREE.MeshBasicMaterial( {color: 0xffffff, transparent: true, opacity: 0.5} );
       const sphere = new THREE.Mesh( geometry, material );
 
       anchor.group.add(sphere);

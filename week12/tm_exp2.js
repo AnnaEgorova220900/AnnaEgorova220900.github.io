@@ -35,7 +35,7 @@
 	let frameCount = 0;
 
     // run the webcam image through the image model
-   async function predict() {
+  async function predict() {
 	if(frameCount % skipCount == 0)
 	{
 		const hands = await detector.estimateHands(webcam.canvas);
@@ -60,23 +60,16 @@
 
 			const fingers = Object.keys(fingerLookupIndices);
 
-			for (let j = 0; j < fingerLookupTable.length; j++) {
-  for (let k = j + 1; k < fingerLookupTable.length; k++) {
-    let finger1 = fingerLookupTable[j][0];
-    let finger2 = fingerLookupTable[k][0];
-    let vector1 = [      hands[0].keypoints[hands[0].annotations[finger1].jointIndexes[0]].x - hands[0].keypoints[hands[0].annotations[finger1].jointIndexes[1]].x,
-      hands[0].keypoints[hands[0].annotations[finger1].jointIndexes[0]].y - hands[0].keypoints[hands[0].annotations[finger1].jointIndexes[1]].y,
-      hands[0].keypoints[hands[0].annotations[finger1].jointIndexes[0]].z - hands[0].keypoints[hands[0].annotations[finger1].jointIndexes[1]].z
-    ];
-    let vector2 = [      hands[0].keypoints[hands[0].annotations[finger2].jointIndexes[0]].x - hands[0].keypoints[hands[0].annotations[finger2].jointIndexes[1]].x,
-      hands[0].keypoints[hands[0].annotations[finger2].jointIndexes[0]].y - hands[0].keypoints[hands[0].annotations[finger2].jointIndexes[1]].y,
-      hands[0].keypoints[hands[0].annotations[finger2].jointIndexes[0]].z - hands[0].keypoints[hands[0].annotations[finger2].jointIndexes[1]].z
-    ];
-    let degrees = angleBetweenVectors(vector1, vector2);
-    labelContainer.innerHTML += `${finger1} та ${finger2}: ${degrees.toFixed(2)} градусів<br>`;
-  }
-}
-
+			for(let i=0;i<fingers.length;i++){
+				const finger = fingers[i];
+				const points = fingerLookupIndices[finger].map(idx => hands[0].keypoints[idx]);
+				const fingerLength = Math.hypot(points[0].x - points[3].x, points[0].y - points[3].y);
+				const adjacent = Math.hypot(points[0].x - points[2].x, points[0].y - points[2].y);
+				const opposite = Math.hypot(points[1].x - points[2].x, points[1].y - points[2].y);
+				const angle = Math.atan2(opposite, adjacent);
+				const degrees = angle * 180 / Math.PI;
+				labelContainer.innerHTML += "Кут між пальцями " + finger + ": " + degrees.toFixed(2) + " градусів<br>";
+			}
 		}
 	}
 

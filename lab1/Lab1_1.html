@@ -1,0 +1,30 @@
+<!--Варіант 7
+1. Створіть модель циліндра, що скочується похилою площиною. Зобразіть
+вектори всіх сил, що діють на циліндр. 
+2. Анімуйте модель.
+3. Додайте джерело світла.
+4. «Прив’яжіть» створену сцену до маркеру доповненої реальності.-->
+
+<html>
+  <head>
+    <title>Лабораторна робота 1</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-arjs@8.0.0/aframe-ar.js"></script>
+  </head>
+  <body>
+    <a-scene physics embedded arjs>
+      <a-entity animation="property: position; to: -5.73 -3.122 -0.088; dur: 4000; loop: true">
+        <a-entity id="cylinder" geometry="primitive: cylinder; radius: 1; height: 2" position="3 2.712 -8.051" rotation="90 30 45" ></a-entity>
+        
+        <a-cylinder color="crimson" height="4" radius="0.05" position="3 1.106 -8.825" rotation="90 0 0"></a-cylinder> <!-- вектор сили ваги -->
+        <a-cylinder color="blue" height="4" radius="0.05" position="2.23 3.82 -9.343" rotation="0 0 30"></a-cylinder> <!-- вектор сили реакції опори -->
+        <a-cylinder color="green" height="4" radius="0.05" position="4.8 3.49 -8.552" rotation="0 0 -60"></a-cylinder> <!-- вектор сили тертя -->
+        <a-cylinder color="yellow" height="4" radius="0.05" position="4.0 3.5 -8.84" rotation="0 0 -30"></a-cylinder> <!-- вектор сумарної сили -->
+      </a-entity>
+      <a-plane static-body width="10" height="10" color="#7BC8A4" rotation="-60 -90 0" position="0 0 -10" side="double"></a-plane> <!-- похила площина -->
+      <a-entity light="type: directional; color: #FFF; intensity: 1.5" position="1 15 10"></a-entity>
+
+    </a-scene>
+  </body>
+</html>

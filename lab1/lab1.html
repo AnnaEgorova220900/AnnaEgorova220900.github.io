@@ -16,17 +16,19 @@
   <body>
     <a-scene physics embedded arjs>
  		<a-marker type='pattern' url='pattern-bukva-a.patt'> 
-                        <a-entity scale="0.5 0.5 0.5" rotation="-90 0 0">
-    			<a-entity id="cylinder" geometry="primitive: cylinder; radius: 1; height: 2" position="0 1 0" rotation="0 0 45" 
-                                  dynamic-body="mass: 5" animation="property: position; to: 0 -1 0; dur: 3000;" repeat="5"></a-entity>
-      			<a-entity line="start: 0 2 0; end: 0 -1 0; color: red;"></a-entity> <!-- сила ваги -->
-      			<a-entity line="start: 0 2 0; end: 1 2 0; color: blue;"></a-entity> <!-- сила реакції опори -->
-     			<a-entity line="start: 0 2 0; end: 0 2 -1; color: green;"></a-entity> <!-- сила тертя -->
-     			<a-entity line="start: 0 2 0; end: 1 2 -1; color: yellow;"></a-entity> <!-- сумарна сила -->
-      			<a-plane static-body width="10" height="10" color="#7BC8A4" rotation="-45 0 0"></a-plane> <!-- похила площина -->
+                        <a-entity animation="property: position; to: -5.73 -3.122 -0.088; dur: 4000; loop: true">
+        <a-entity id="cylinder" geometry="primitive: cylinder; radius: 1; height: 2" position="3 2.712 -8.051" rotation="90 30 45" ></a-entity>
+        
+        <a-cylinder color="crimson" height="4" radius="0.05" position="3 1.106 -8.825" rotation="90 0 0"></a-cylinder> <!-- вектор сили ваги -->
+        <a-cylinder color="blue" height="4" radius="0.05" position="2.23 3.82 -9.343" rotation="0 0 30"></a-cylinder> <!-- вектор сили реакції опори -->
+        <a-cylinder color="green" height="4" radius="0.05" position="4.8 3.49 -8.552" rotation="0 0 -60"></a-cylinder> <!-- вектор сили тертя -->
+        <a-cylinder color="yellow" height="4" radius="0.05" position="4.0 3.5 -8.84" rotation="0 0 -30"></a-cylinder> <!-- вектор сумарної сили -->
+      </a-entity>
+      <a-plane static-body width="10" height="10" color="#7BC8A4" rotation="-60 -90 0" position="0 0 -10" side="double"></a-plane> <!-- похила площина -->
 		</a-marker>
       			<a-camera position="0 3 10"></a-camera>
-      			<a-entity light="type: directional; color: #FFF; intensity: 1.5" position="5 5 5"></a-entity> <!-- напрямлене світло -->
+      			<a-entity light="type: directional; color: #FFF; intensity: 1.5" position="1 15 10"></a-entity>
+
     </a-scene>
   </body>
 </html>

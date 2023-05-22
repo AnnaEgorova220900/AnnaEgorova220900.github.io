@@ -10,7 +10,7 @@
     <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true" renderer="antialias: true; alpha: true">
         <a-camera gps-camera="gpsMinDistance: 50"></a-camera>
         <a-entity gps-entity-place="latitude: 0; longitude: 0;">
-            <a-gltf-model src="pokemon_sudowoodo_-_tree.glb" scale="1 1 1"></a-gltf-model>
+            <a-gltf-model src="pokemon_sudowoodo_-_tree.glb" scale="2 2 2"></a-gltf-model>
         </a-entity>
     </a-scene>
     <script>
@@ -31,10 +31,10 @@
             const long = position.coords.longitude;
             // Додавання моделі зліва від користувача
             const leftLat = lat - 0.0001; // обчислюємо ліву широту
-            addModel(leftLat, long, 'pokemon_sudowoodo_-_tree.glb', '1 1 1');
+            addModel(leftLat, long, 'pokemon_sudowoodo_-_tree.glb', '2 2 2');
             // Додавання моделі справа від користувача
             const rightLat = lat + 0.0001; // обчислюємо праву широту
-            addModel(rightLat, long, 'pokemon_sudowoodo_-_tree.glb', '1 1 1');
+            addModel(rightLat, long, 'pokemon_sudowoodo_-_tree.glb', '2 2 2');
         }, function(error) {
             console.error(error);
         });
